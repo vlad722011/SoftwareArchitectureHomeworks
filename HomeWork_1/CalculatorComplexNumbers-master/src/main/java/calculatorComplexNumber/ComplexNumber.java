@@ -1,4 +1,4 @@
-package org.Calculator;
+package calculatorComplexNumber;
 
 public class ComplexNumber {
     private double realPart;

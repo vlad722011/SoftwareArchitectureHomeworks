@@ -1,4 +1,4 @@
-package org.Calculator;
+package calculatorComplexNumber;
 
 public class Main {
     public static void main(String[] args) {

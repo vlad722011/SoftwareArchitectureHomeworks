@@ -1,4 +1,4 @@
-package org.Calculator;
+package calculatorComplexNumber;
 
 public interface Calculable {
     Calculable sum(ComplexNumber first, ComplexNumber second);

@@ -1,4 +1,4 @@
-package org.Calculator;
+package calculatorComplexNumber;
 
 public class ComputingModuleClass implements CalculableFactoryInterface, Calculable {
     ComplexNumber resultNumber = new ComplexNumber(0, 0);

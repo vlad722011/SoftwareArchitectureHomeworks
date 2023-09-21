@@ -1,0 +1,61 @@
+@startuml
+interface calculatorComplexNumber.CalculableFactoryInterface {
+~ Calculable createArg(ComplexNumber)
+}
+class calculatorComplexNumber.ComputingModuleClass {
+~ ComplexNumber resultNumber
+~ String result
+~ ComplexNumber number
++ <<Create>> ComputingModuleClass(ComplexNumber)
++ Calculable sum(ComplexNumber,ComplexNumber)
++ Calculable subtraction(ComplexNumber,ComplexNumber)
++ Calculable multi(ComplexNumber,ComplexNumber)
++ Calculable division(ComplexNumber,ComplexNumber)
++ String ConverterResultToTrigonometric(ComplexNumber)
+- void СollectResultString(StringBuilder,double,double)
++ Calculable createArg(ComplexNumber)
++ ComplexNumber getResult()
+- {static} DataToCalculateSum getDataToCalculateSum(ComplexNumber,ComplexNumber)
+- {static} DataToCalculate getDataToCalculateSub(ComplexNumber,ComplexNumber)
+- {static} DataForMulti getDataForMulti(ComplexNumber,ComplexNumber)
+- {static} ResultDataForDivision getResultDataForDivision(ComplexNumber,ComplexNumber)
+}
+class calculatorComplexNumber.Main {
++ {static} void main(String[])
+}
+class calculatorComplexNumber.CalculableFactoryClass {
++ Calculable createArg(ComplexNumber)
+}
+class calculatorComplexNumber.ComplexNumber {
+- double realPart
+- double imaginaryPart
++ <<Create>> ComplexNumber(double,double)
++ double getRealPart()
++ double getImaginaryPart()
++ void setRealPart(double)
++ void setImaginaryPart(double)
++ String toString()
+}
+class calculatorComplexNumber.ViewCalculator {
+- CalculableFactoryInterface calculableFactory
++ <<Create>> ViewCalculator(CalculableFactoryInterface)
++ void run()
+- ComplexNumber GetFirstComplexNumber()
+- ComplexNumber GetSecondComplexNumber()
+- String prompt(String)
+- int promptInt(String)
+}
+interface calculatorComplexNumber.Calculable {
+~ Calculable sum(ComplexNumber,ComplexNumber)
+~ Calculable multi(ComplexNumber,ComplexNumber)
+~ Calculable division(ComplexNumber,ComplexNumber)
+~ Calculable subtraction(ComplexNumber,ComplexNumber)
+~ ComplexNumber getResult()
+~ String ConverterResultToTrigonometric(ComplexNumber)
+}
+
+
+calculatorComplexNumber.CalculableFactoryInterface <|.. calculatorComplexNumber.ComputingModuleClass
+calculatorComplexNumber.Calculable <|.. calculatorComplexNumber.ComputingModuleClass
+calculatorComplexNumber.CalculableFactoryInterface <|.. calculatorComplexNumber.CalculableFactoryClass
+@enduml
