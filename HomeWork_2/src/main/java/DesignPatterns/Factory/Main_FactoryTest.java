@@ -3,7 +3,7 @@
 
 Описание:
 Данный паттерн используется, когда у нас есть суперкласс
-(в нашем примере это интерфейс "ШАХМАТНАЯ ФИГУРА" (Interfase - ChessFigure))
+(в нашем примере это класс "ФАБРИКА" (Class - "Factory"))
 с несколькими подклассами (соответственно в нашем примере это классы конкретных шахматных фигур:
 ладья, ферзь, король, конь, слон и пешка).
 На основе входных данных возвращается один из подклассов. В момент создания суперкласс не знает
@@ -13,7 +13,7 @@
 
 package DesignPatterns.Factory;
 
-public class FactoryTest {
+public class Main_FactoryTest {
     public static void main(String[] args) {
         Color color1 = Color.WHITE;
         ChessFigure figure1 = new Rook();
