@@ -117,4 +117,8 @@ User --> User : [invariant] Funds >= busTicket.price
 BusTicket --> BusTicket : [invariant] Price > 0
 Ticket --> Ticket : [invariant] Price > 0
 
+
+Main --> User : в классе Main создаются пользователи
+
+
 @enduml
