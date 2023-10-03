@@ -11,6 +11,7 @@ class User implements UserActions {
     private double thisUserFunds;
 
 
+
     public User(String thisUserName, String thisUserPassword) {
         this.thisUserName = thisUserName;
         this.thisUserPassword = thisUserPassword;
@@ -151,7 +152,8 @@ class User implements UserActions {
      * - У пользователя должно быть достаточно средств для бронирования (checkFunds).
      * <p>
      * Если все предусловия выполняются, билет будет успешно забронирован, и метод вернет true.
-     * В противном случае, если хотя бы одно из предусловий не выполняется, бронирование не будет произведено, и метод вернет false.
+     * В противном случае, если хотя бы одно из предусловий не выполняется, бронирование не будет произведено,
+     * и метод вернет false.
      */
 
     private boolean performReservation() {
@@ -184,6 +186,7 @@ class User implements UserActions {
     /*
      Если все предусловия соблюдены, пытаемся забронировать билет:
     */
+
     public boolean reserveTicket() {
         // Реализация бронирования билета
         if (performReservation()) {
@@ -194,19 +197,13 @@ class User implements UserActions {
         }
     }
 
-
-
-
     /*
       Если пользователю удалось забронировать билет, то далее необходимо выполнить все постусловия.
     */
 
-
-
-
-
     public boolean deductFunds() {
         // Реализация метода
+
         return false;
     }
 

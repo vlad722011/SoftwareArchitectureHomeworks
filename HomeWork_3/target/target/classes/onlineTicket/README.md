@@ -48,7 +48,3 @@
 ### UML-диаграмма разработанного сервиса:
 
 ![uml_diagramma](/HomeWork_4/src/main/java/onlineTicket/Sourse/onlineTicket.png)
-
-
-### Попытка забронировать билет в сервисе:
-![ticketBooking](/HomeWork_4/src/main/java/onlineTicket/Sourse/TicketBooking.png)

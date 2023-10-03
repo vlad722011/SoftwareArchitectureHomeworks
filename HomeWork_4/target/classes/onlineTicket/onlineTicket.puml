@@ -97,6 +97,7 @@ BusTicket --|> Ticket : extends
 class Main {
 + {static} void main(String[])
 }
+Main --> User : в классе Main создаются пользователи
 
 ' Предусловия
 User --> User : authorize(username, password)
@@ -116,9 +117,5 @@ User --> User : cancelReservation()
 User --> User : [invariant] Funds >= busTicket.price
 BusTicket --> BusTicket : [invariant] Price > 0
 Ticket --> Ticket : [invariant] Price > 0
-
-
-Main --> User : в классе Main создаются пользователи
-
 
 @enduml

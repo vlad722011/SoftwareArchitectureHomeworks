@@ -4,7 +4,7 @@ class BusTicket extends Ticket {
     int number;
 
     public static double getTicketPrice() {
-        return 29000;
+        return 9000;
     }
 
     public static int getCountTickets() {
