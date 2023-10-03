@@ -1,0 +1,84 @@
+@startuml
+
+' Интерфейсы
+interface UserActions {
+  +authorize(username: String, password: String): boolean
+  +selectRoute(routeId: String, time: DateTime): boolean
+  +checkTicketAvailability(): boolean
+  +checkFunds(): boolean
+}
+
+interface TicketActions {
+  +reserveTicket(): boolean
+  +deductFunds(): boolean
+  +confirmPurchase(): boolean
+  +updateTicketAvailability(): void
+  +cancelReservation(): boolean
+}
+
+' Классы и операции
+
+' класс, представляющий пользователя системы.
+class User implements UserActions {
+' Приватное статическое поле thisUserName
+ - String thisUserName
+' Приватное статичесое поле passwordThisUser
+ - String passwordThisUser
+ ' Статическое булево поле isUserAutorize
+ + boolean isUserAutorize
+
+' предусловия -->
+  +authorize(username: String, password: String): boolean
+  +selectRoute(routeId: String, time: DateTime): boolean
+  +checkTicketAvailability(): boolean
+  +checkFunds(): boolean
+ ' <-- предусловия
+
+ ' постусловия -->
+  +reserveTicket(): boolean
+  +deductFunds(): boolean
+  +confirmPurchase(): boolean
+  +updateTicketAvailability(): void
+  +cancelReservation(): boolean
+ ' <-- постусловия
+}
+
+' Классы:
+' Абстрактный класс "class Ticket" и его наследование
+
+abstract class Ticket implements TicketActions {
+  +routeId: String
+  +departureTime: DateTime
+  +price: Money
+}
+User --|> BusTicket : uses
+
+class BusTicket extends Ticket {
+  +number: int
+  +routeId: String
+  +departureTime: DateTime
+  +price: Money
+}
+BusTicket --|> Ticket : extends
+
+
+' Предусловия
+User --> User : authorize(username, password)
+User --> User : selectRoute(routeId, time)
+User --> User : checkTicketAvailability()
+User --> User : checkFunds()
+
+' Постусловия
+User --> User : confirmPurchase()
+User --> BusTicket : reserveTicket()
+User --> User : deductFunds()
+User --> BusTicket : Proof of Purchase()
+User --> BusTicket : updateTicketAvailability()
+User --> User : cancelReservation()
+
+' Инварианты
+User --> User : [invariant] Funds >= busTicket.price
+BusTicket --> BusTicket : [invariant] Price > 0
+Ticket --> Ticket : [invariant] Price > 0
+
+@enduml

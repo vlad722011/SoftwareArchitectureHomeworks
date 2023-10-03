@@ -7,8 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="ComplexCalculator" />
+        <module name="HomeWork_4" />
         <module name="HomeWork_2" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="HomeWork_3" target="20" />
+    </bytecodeTargetLevel>
   </component>
 </project>
