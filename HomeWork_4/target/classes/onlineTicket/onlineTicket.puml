@@ -7,7 +7,7 @@ interface UserActions {
   +checkTicketAvailability(): boolean
   +checkFunds(): boolean
 }
-UserActions <|.. User
+
 
 interface TicketActions {
   +reserveTicket(): boolean
@@ -16,7 +16,7 @@ interface TicketActions {
   +updateTicketAvailability(): void
   +cancelReservation(): boolean
 }
-TicketActions <|.. Ticket
+
 
 ' Классы и операции:
 
@@ -27,10 +27,22 @@ abstract class Ticket {
 ~ Date departureTime
 ~ double price
 }
+Ticket ..|> TicketActions : implements
 
+class BusTicket {
+~ int number
++ {static} double getTicketPrice()
++ {static} int getCountTickets()
++ boolean reserveTicket()
++ boolean deductFunds()
++ boolean confirmPurchase()
++ void updateTicketAvailability()
++ boolean cancelReservation()
+}
+BusTicket --|> Ticket : extends
 
 ' класс, представляющий пользователя системы.
-class User implements UserActions {
+class User {
 ' Приватное статическое поле thisUserName
 - {static} String thisUserName
 ' Приватное статичесое поле passwordThisUser
@@ -80,19 +92,9 @@ class User implements UserActions {
  ' <-- постусловия
 }
 User --|> BusTicket : uses
+User ..|> UserActions : implements
 
 
-class BusTicket {
-~ int number
-+ {static} double getTicketPrice()
-+ {static} int getCountTickets()
-+ boolean reserveTicket()
-+ boolean deductFunds()
-+ boolean confirmPurchase()
-+ void updateTicketAvailability()
-+ boolean cancelReservation()
-}
-BusTicket --|> Ticket : extends
 
 class Main {
 + {static} void main(String[])
