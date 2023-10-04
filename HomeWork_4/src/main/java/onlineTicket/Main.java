@@ -1,8 +1,16 @@
 package onlineTicket;
-
-
 import java.util.Date;
 import java.util.Scanner;
+
+/**
+ * Компонент: class Main
+ * Версия: 1.0.0
+ *
+ * Описание: Главный класс программы.
+ *
+ * Изменения:
+ * - 1.0.0: Первая версия.
+ */
 
 public class Main {
 

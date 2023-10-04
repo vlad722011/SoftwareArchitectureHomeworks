@@ -1,5 +1,15 @@
 package onlineTicket;
 
+/**
+ * Компонент: class BusTicket
+ * Версия: 1.0.0
+ *
+ * Описание: Этот компонент определяет контракты для билетов на автобус
+ *
+ * Изменения:
+ * - 1.0.0: Первая версия.
+ */
+
 class BusTicket extends Ticket {
     static int count = 49;
 
