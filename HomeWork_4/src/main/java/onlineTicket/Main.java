@@ -15,7 +15,7 @@ public class Main {
         /*
          Положим на счёт пользователю некоторое количество средств:
          */
-        user.setThisUserFunds(20000);
+        user.setThisUserFunds(15000);
 
         /*
         Создание объекта Scanner для чтения пользовательского ввода
@@ -106,6 +106,62 @@ public class Main {
             System.out.println("Билет успешно забронирован.");
         } else {
             System.out.println("Не удалось забронировать билет.");
+        }
+
+
+        /*
+         После успешного бронирования, выполняем постусловия:
+         */
+
+        /*
+         Подтверждение покупки:
+         */
+        System.out.println("Вы подтверждаете покупку билета?");
+        String userSelected = scanner.nextLine();
+        boolean isConfirmPurshaze = user.confirmPurchase(userSelected);
+        if(isConfirmPurshaze){
+            System.out.println("Покупка подтверждена. Сейчас с вашего счета произойдет списание средств");
+            System.out.println
+                    (String.format("Денег на счету пользователя до бронирования билета: %.2f рублей"
+                            , user.getThisUserFunds()));
+
+            /*
+             Списание средств со счета пользователя, после подтверждения покупки:
+             */
+            user.deductFunds();
+            System.out.println
+                    (String.format("Денег на счету пользователя после оплаты билета: %.2f рублей"
+                            , user.getThisUserFunds()));
+
+            /*
+            Обновление информации о наличии билетов на выбранное направление, после покупки билетов пользователем:
+             */
+
+            user.updateTicketAvailability(1);
+            System.out.println("Обновлена информация о количестве доступных билетов на выбранное направление");
+            System.out.println
+                    (String.format("Обновленное количество доступных билетов на выбранное направление: %d."
+                            , BusTicket.getCountTickets()));
+        }
+        else if (!(isConfirmPurshaze)){
+            System.out.println("Покупка не подтверждена. Сейчас произойдет отмена брони.");
+
+            /*
+             Отмена брони:
+             */
+            boolean  isCancelReservation = user.cancelReservation(isConfirmPurshaze);
+            if(isCancelReservation){
+                System.out.println("Бронь отменена.");
+                System.out.println
+                        (String.format("Билетов в наличии на выбранное направление и дату, после отмены брони: %d."
+                                , BusTicket.getCountTickets()));
+            }
+            System.out.println
+                    (String.format("Денег на счету пользователя до бронирования билета: %.2f рублей"
+                            , user.getThisUserFunds()));
+            System.out.println
+                    (String.format("Денег на счету пользователя после отмены брони: %.2f рублей"
+                            , user.getThisUserFunds()));
         }
     }
 }

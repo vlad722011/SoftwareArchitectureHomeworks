@@ -1,14 +1,13 @@
 package onlineTicket;
 
 class BusTicket extends Ticket {
-    int number;
+    static int count = 49;
 
     public static double getTicketPrice() {
         return 9000;
     }
 
     public static int getCountTickets() {
-        int count = 49;
         return count;
     }
 

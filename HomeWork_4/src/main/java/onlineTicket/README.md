@@ -56,3 +56,11 @@
 
 ### Попытка забронировать билет в сервисе:
 ![ticketBooking](/HomeWork_4/src/main/java/onlineTicket/Sourse/TicketBooking.png)
+
+### Подтверждение покупки и оплата билетов:
+
+![confirmPurshase](/HomeWork_4/src/main/java/onlineTicket/Sourse/confirmPurshase.png)
+
+### Отмена брониирования:
+
+![cancelReservation](/HomeWork_4/src/main/java/onlineTicket/Sourse/CancelReservation.png)
