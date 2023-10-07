@@ -112,7 +112,7 @@ calculatorMVC.model.CalculatorController "1..*" -- "1..1" calculatorMVC.model.su
 calculatorMVC.model.CalculatorController "1..*" -- "1..1" calculatorMVC.model.multiplyOperation.MultiplyOperation: связь
 
 
-
+' CalculatorController агрегирует DivOperation
 class calculatorMVC.model.diviisionOperation.DivOperation {
 - double firstArgument
 - double secondArgument
@@ -120,6 +120,7 @@ class calculatorMVC.model.diviisionOperation.DivOperation {
 }
 calculatorMVC.model.diviisionOperation.DivOperation ..o calculatorMVC.model.CalculatorController
 
+' CalculatorController агрегирует SumOperation
 class calculatorMVC.model.sumOperation.SumOperation {
 - double firstArgument
 - double secondArgument
@@ -127,6 +128,7 @@ class calculatorMVC.model.sumOperation.SumOperation {
 }
 calculatorMVC.model.sumOperation.SumOperation ..o calculatorMVC.model.CalculatorController
 
+' CalculatorController агрегирует SubOperation
 class calculatorMVC.model.subOperation.SubOperation {
 - double firstArgument
 - double secondArgument
@@ -134,6 +136,7 @@ class calculatorMVC.model.subOperation.SubOperation {
 }
 calculatorMVC.model.subOperation.SubOperation ..o calculatorMVC.model.CalculatorController
 
+' CalculatorController агрегирует MultiplyOperation
 class calculatorMVC.model.multiplyOperation.MultiplyOperation {
 - double firstArgument
 - double secondArgument
