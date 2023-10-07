@@ -118,24 +118,28 @@ class calculatorMVC.model.diviisionOperation.DivOperation {
 - double secondArgument
 + double divisionOperation(double,double)
 }
+calculatorMVC.model.diviisionOperation.DivOperation ..o calculatorMVC.model.CalculatorController
 
 class calculatorMVC.model.sumOperation.SumOperation {
 - double firstArgument
 - double secondArgument
 + double sumOperation(double,double)
 }
+calculatorMVC.model.sumOperation.SumOperation ..o calculatorMVC.model.CalculatorController
 
 class calculatorMVC.model.subOperation.SubOperation {
 - double firstArgument
 - double secondArgument
 + double subOperation(double,double)
 }
+calculatorMVC.model.subOperation.SubOperation ..o calculatorMVC.model.CalculatorController
 
 class calculatorMVC.model.multiplyOperation.MultiplyOperation {
 - double firstArgument
 - double secondArgument
 + double multiplyOperation(double,double)
 }
+calculatorMVC.model.multiplyOperation.MultiplyOperation ..o calculatorMVC.model.CalculatorController
 
 class calculatorMVC.view.ConsoleView {
 ~ CalculatorController calculatorController
