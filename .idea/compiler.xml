@@ -6,13 +6,16 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="ComplexCalculator" />
-        <module name="HomeWork_4" />
         <module name="HomeWork_2" />
+        <module name="ComplexCalculator" />
+        <module name="HomeWork_4 (1)" />
+        <module name="HomeWork_4 (2)" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="HomeWork_3" target="20" />
+      <module name="HomeWork_4" target="20" />
+      <module name="HomeWork_5" target="20" />
     </bytecodeTargetLevel>
   </component>
 </project>
