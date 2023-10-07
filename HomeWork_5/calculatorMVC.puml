@@ -1,0 +1,193 @@
+@startuml
+
+' Интерфейсы:
+
+interface calculatorMVC.db.output.IOutput {
+~ void saveData()
+~ String outputResultToConsole(String)
+}
+
+interface calculatorMVC.db.input.IInput {
+~ void getData()
+~ String getDataFromConsole()
+}
+
+interface calculatorMVC.view.IView {
+~ String runCalculator()
+}
+
+
+' Классы и связи:
+
+class calculatorMVC.Main {
++ {static} void main(String[])
+}
+
+
+class calculatorMVC.model.CalculatorController {
++ double SumOperation(double,double)
++ double SubOperation(double,double)
++ double DivOperation(double,double)
++ double MultiplyOperation(double,double)
+}
+calculatorMVC.model.CalculatorController -> calculatorMVC.model.diviisionOperation.DivOperation
+calculatorMVC.model.CalculatorController -> calculatorMVC.model.sumOperation.SumOperation
+calculatorMVC.model.CalculatorController -> calculatorMVC.model.subOperation.SubOperation
+calculatorMVC.model.CalculatorController -> calculatorMVC.model.multiplyOperation.MultiplyOperation
+
+class calculatorMVC.model.diviisionOperation.DivOperation {
+- double firstArgument
+- double secondArgument
++ double divisionOperation(double,double)
+}
+
+class calculatorMVC.model.sumOperation.SumOperation {
+- double firstArgument
+- double secondArgument
++ double sumOperation(double,double)
+}
+
+class calculatorMVC.model.subOperation.SubOperation {
+- double firstArgument
+- double secondArgument
++ double subOperation(double,double)
+}
+
+class calculatorMVC.model.multiplyOperation.MultiplyOperation {
+- double firstArgument
+- double secondArgument
++ double multiplyOperation(double,double)
+}
+
+class calculatorMVC.view.ConsoleView {
+~ CalculatorController calculatorController
+~ IInput inputString
+~ IOutput outputString
++ String runCalculator()
++ String getResultString(String)
+}
+calculatorMVC.view.IView <|.. calculatorMVC.view.ConsoleView
+
+calculatorMVC.view.ConsoleView -> calculatorMVC.model.CalculatorController : uses
+calculatorMVC.view.ConsoleView -> calculatorMVC.db.output.IOutput  : uses
+calculatorMVC.view.ConsoleView -> calculatorMVC.db.output.OutputResultToConsole  : uses
+@startuml
+
+' Интерфейсы:
+
+interface calculatorMVC.db.output.IOutput {
+~ void saveData()
+~ String outputResultToConsole(String)
+}
+
+interface calculatorMVC.db.input.IInput {
+~ void getData()
+~ String getDataFromConsole()
+}
+
+interface calculatorMVC.view.IView {
+~ String runCalculator()
+}
+
+
+' Классы и связи:
+
+class calculatorMVC.Main {
++ {static} void main(String[])
+}
+calculatorMVC.Main -> calculatorMVC.view.IView
+calculatorMVC.Main -> calculatorMVC.db.input.GetDataFromConsole
+calculatorMVC.Main -> calculatorMVC.db.output.OutputResultToConsole
+
+
+class calculatorMVC.model.CalculatorController {
++ double SumOperation(double,double)
++ double SubOperation(double,double)
++ double DivOperation(double,double)
++ double MultiplyOperation(double,double)
+}
+calculatorMVC.model.CalculatorController "1..*" -- "1..1" calculatorMVC.model.diviisionOperation.DivOperation : связь
+calculatorMVC.model.CalculatorController "1..*" -- "1..1" calculatorMVC.model.sumOperation.SumOperation: связь
+calculatorMVC.model.CalculatorController "1..*" -- "1..1" calculatorMVC.model.subOperation.SubOperation: связь
+calculatorMVC.model.CalculatorController "1..*" -- "1..1" calculatorMVC.model.multiplyOperation.MultiplyOperation: связь
+
+
+
+class calculatorMVC.model.diviisionOperation.DivOperation {
+- double firstArgument
+- double secondArgument
++ double divisionOperation(double,double)
+}
+
+class calculatorMVC.model.sumOperation.SumOperation {
+- double firstArgument
+- double secondArgument
++ double sumOperation(double,double)
+}
+
+class calculatorMVC.model.subOperation.SubOperation {
+- double firstArgument
+- double secondArgument
++ double subOperation(double,double)
+}
+
+class calculatorMVC.model.multiplyOperation.MultiplyOperation {
+- double firstArgument
+- double secondArgument
++ double multiplyOperation(double,double)
+}
+
+class calculatorMVC.view.ConsoleView {
+~ CalculatorController calculatorController
+~ IInput inputString
+~ IOutput outputString
++ String runCalculator()
++ String getResultString(String)
+}
+calculatorMVC.view.IView <|.. calculatorMVC.view.ConsoleView
+
+calculatorMVC.view.ConsoleView -> calculatorMVC.model.CalculatorController : uses
+calculatorMVC.view.ConsoleView -> calculatorMVC.db.output.IOutput  : uses
+calculatorMVC.view.ConsoleView -> calculatorMVC.db.output.OutputResultToConsole  : uses
+calculatorMVC.view.ConsoleView -> calculatorMVC.db.input.GetDataFromConsole : uses
+
+class calculatorMVC.db.output.OutputResultToConsole {
+~ CalculatorController calculatorController
++ void saveData()
++ String outputResultToConsole(String)
+}
+calculatorMVC.db.output.IOutput <|.. calculatorMVC.db.output.OutputResultToConsole
+
+
+class calculatorMVC.db.input.GetDataFromConsole {
++ void getData()
++ String getDataFromConsole()
+- {static} String getString(Scanner)
+}
+calculatorMVC.db.input.IInput <|.. calculatorMVC.db.input.GetDataFromConsole
+
+
+
+
+@enduml
+calculatorMVC.view.ConsoleView -> calculatorMVC.db.input.GetDataFromConsole : uses
+
+class calculatorMVC.db.output.OutputResultToConsole {
+~ CalculatorController calculatorController
++ void saveData()
++ String outputResultToConsole(String)
+}
+calculatorMVC.db.output.IOutput <|.. calculatorMVC.db.output.OutputResultToConsole
+
+
+class calculatorMVC.db.input.GetDataFromConsole {
++ void getData()
++ String getDataFromConsole()
+- {static} String getString(Scanner)
+}
+calculatorMVC.db.input.IInput <|.. calculatorMVC.db.input.GetDataFromConsole
+
+
+
+
+@enduml
