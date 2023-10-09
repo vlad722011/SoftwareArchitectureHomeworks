@@ -1,0 +1,68 @@
+@startuml
+'Интерфейсы и их реализация:
+interface bridge2.operationSystems.OS {
+~ String OperationSystem()
+}
+
+
+class bridge2.operationSystems.OperationSystems {
+}
+bridge2.operationSystems.OperationSystems ..|> bridge2.operationSystems.OS : класс OperationSystems реализует интерфейс OS
+bridge2.operationSystems.OperationSystems +.. bridge2.operationSystems.OperationSystems$WindowsOS: Интерфейс OS - мост для WindowsOS
+bridge2.operationSystems.OperationSystems +.. bridge2.operationSystems.OperationSystems$UbuntuOS : Интерфейс OS - мост дл UbuntuOS
+bridge2.operationSystems.OperationSystems +.. bridge2.operationSystems.OperationSystems$MacOS : Интерфейс OS - мост для MacOS
+
+
+class bridge2.operationSystems.OperationSystems$WindowsOS {
++ String OperationSystem()
+}
+bridge2.operationSystems.OS <|.. bridge2.operationSystems.OperationSystems$WindowsOS
+
+class bridge2.operationSystems.OperationSystems$UbuntuOS {
++ String OperationSystem()
+}
+bridge2.operationSystems.OS <|.. bridge2.operationSystems.OperationSystems$UbuntuOS
+
+class bridge2.operationSystems.OperationSystems$MacOS {
++ String OperationSystem()
+}
+bridge2.operationSystems.OS <|.. bridge2.operationSystems.OperationSystems$MacOS
+
+
+'Класс Main:
+class bridge2.Main {
++ {static} void main(String[])
+}
+
+bridge2.Main -> bridge2.notebooks.Notebook : В классе Main создаются объекты всех типов ноутбуков
+
+
+
+'Абстрактные классы:
+abstract class bridge2.notebooks.Notebook {
+# OS operationSystem
+~ {abstract}String describe()
+}
+bridge2.notebooks.Notebook ..o bridge2.operationSystems.OperationSystems : класс Notebook агрегирует класс OperationSystems
+'Классы и наследование:
+class bridge2.notebooks.Apple {
+~ String describe()
++ String toString()
+}
+bridge2.notebooks.Notebook <|-- bridge2.notebooks.Apple
+
+class bridge2.notebooks.Dell {
+~ String describe()
++ String toString()
+}
+bridge2.notebooks.Notebook <|-- bridge2.notebooks.Dell
+
+class bridge2.notebooks.Lenovo {
+~ String describe()
++ String toString()
+}
+bridge2.notebooks.Notebook <|-- bridge2.notebooks.Lenovo
+
+
+
+@enduml
