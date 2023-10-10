@@ -1,0 +1,25 @@
+@startuml
+'Интерфейсы и их реализация:
+interface proxyPattern.IMoveable {
+~ void move()
+}
+
+'Класс Main:
+class proxyPattern.Main {
++ {static} void main(String[])
+}
+proxyPattern.Main -> proxyPattern.AirplaneProxy : В классе Main создаются объекты
+
+'Классы и связи:
+class proxyPattern.AirplaneProxy {
+~ IMoveable airplaneProxy
++ void move()
+}
+proxyPattern.AirplaneProxy -> proxyPattern.Airplane : Содержит ссылку на основной объект
+proxyPattern.IMoveable <|.. proxyPattern.AirplaneProxy
+
+class proxyPattern.Airplane {
++ void move()
+}
+proxyPattern.IMoveable <|.. proxyPattern.Airplane
+@enduml
