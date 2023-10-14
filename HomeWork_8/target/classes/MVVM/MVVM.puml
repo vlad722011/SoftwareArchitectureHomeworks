@@ -5,7 +5,11 @@ class MVVM.viewModel.BooksViewModel {
 + String getDisplayableBooks()
 + void markBookAsRead(int)
 }
-MVVM.viewModel.BooksViewModel --|> MVVM.view.MVVMPatternDemo
+
+
+
+
+
 
 ' model
 ' в укомпоненте model как обычно хранятся данные и бизнес логика приложения
@@ -19,11 +23,20 @@ class MVVM.model.Book {
 + boolean isRead()
 + String toString()
 }
-MVVM.model.Book --|> MVVM.viewModel.BooksViewModel
+
+
 
 ' view
 ' пользователь взаимодействует с приложением чрез компонент view
 class MVVM.view.MVVMPatternDemo {
 + {static} void main(String[])
 }
+
+MVVM.model.Book <|-- MVVM.viewModel.BooksViewModel
+MVVM.model.Book --|> MVVM.viewModel.BooksViewModel
+MVVM.viewModel.BooksViewModel --|> MVVM.view.MVVMPatternDemo
+MVVM.model.Book ..|> MVVM.viewModel.BooksViewModel
+
+MVVM.view.MVVMPatternDemo ..|> MVVM.viewModel.BooksViewModel
+MVVM.viewModel.BooksViewModel ..|> MVVM.view.MVVMPatternDemo
 @enduml
