@@ -1,0 +1,29 @@
+@startuml
+' viewModel
+class MVVM.viewModel.BooksViewModel {
+- List<Book> books
++ String getDisplayableBooks()
++ void markBookAsRead(int)
+}
+MVVM.viewModel.BooksViewModel --|> MVVM.view.MVVMPatternDemo
+
+' model
+' в укомпоненте model как обычно хранятся данные и бизнес логика приложения
+' изменение состояния данных в компоненте model,
+' приводит к автоматическому изменению состяния представления,
+' хотя напрямую model и view не связаны
+class MVVM.model.Book {
+- String title
+- boolean isRead
++ void markAsRead()
++ boolean isRead()
++ String toString()
+}
+MVVM.model.Book --|> MVVM.viewModel.BooksViewModel
+
+' view
+' пользователь взаимодействует с приложением чрез компонент view
+class MVVM.view.MVVMPatternDemo {
++ {static} void main(String[])
+}
+@enduml
