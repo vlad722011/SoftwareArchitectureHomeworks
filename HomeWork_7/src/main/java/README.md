@@ -46,7 +46,7 @@
 ### USE case diagramma (Ver. 1.0) приложения, разработанная согласно требованиям::
 
 
-![Use_case_diagramma](/HomeWork_7/Sourse/UseCaseDiagramma_Web-app_SearchAviaTickets.png)
+![Use_case_diagramma](/HomeWork_7/src/main/java/Sourse/UseCaseDiagramma_Web-app_SearchAviaTickets.png)
 
 
 
@@ -90,15 +90,16 @@
 
 ### Страница регистрации:
 
-![search_page](/HomeWork_7/Sourse/registr_page.png)
+![sign-ap_page](/HomeWork_7/src/main/java/Sourse/registr_page.png)
 
 ### Страница авторизации:
 
-![search_page](/HomeWork_7/Sourse/login_page.png)
+![login_page](/HomeWork_7/src/main/java/Sourse/login_page.png)
 
 ### Страница поиска:
 
-![search_page](/HomeWork_7/Sourse/search_page.png)
+![search_page](/HomeWork_7/src/main/java/Sourse/search_page.png)
+
 
 
 
