@@ -6,11 +6,6 @@ class MVVM.viewModel.BooksViewModel {
 + void markBookAsRead(int)
 }
 
-
-
-
-
-
 ' model
 ' в укомпоненте model как обычно хранятся данные и бизнес логика приложения
 ' изменение состояния данных в компоненте model,
@@ -24,19 +19,17 @@ class MVVM.model.Book {
 + String toString()
 }
 
-
-
 ' view
 ' пользователь взаимодействует с приложением чрез компонент view
 class MVVM.view.MVVMPatternDemo {
 + {static} void main(String[])
 }
 
+'связи
 MVVM.model.Book <|-- MVVM.viewModel.BooksViewModel
 MVVM.model.Book --|> MVVM.viewModel.BooksViewModel
 MVVM.viewModel.BooksViewModel --|> MVVM.view.MVVMPatternDemo
 MVVM.model.Book ..|> MVVM.viewModel.BooksViewModel
-
 MVVM.view.MVVMPatternDemo ..|> MVVM.viewModel.BooksViewModel
 MVVM.viewModel.BooksViewModel ..|> MVVM.view.MVVMPatternDemo
 @enduml
