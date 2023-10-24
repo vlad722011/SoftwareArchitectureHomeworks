@@ -6,17 +6,28 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="HomeWork_1" />
         <module name="HomeWork_2" />
-        <module name="ComplexCalculator" />
+        <module name="HomeWork_3" />
         <module name="HomeWork_4" />
         <module name="HomeWork_5" />
         <module name="HomeWork_6" />
+        <module name="openapi-spring" />
+        <module name="HomeWork_7" />
+        <module name="HomeWork_8" />
+        <module name="HomeWork_10" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="HomeWork_3" target="20" />
+      <module name="ComplexCalculator" target="20" />
       <module name="HomeWork_4 (1)" target="20" />
       <module name="HomeWork_4 (2)" target="20" />
+      <module name="HomeWork_9" target="20" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="openapi-spring" options="-parameters" />
+    </option>
   </component>
 </project>

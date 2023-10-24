@@ -10,10 +10,16 @@
         <option value="$PROJECT_DIR$/HomeWork_4/pom.xml" />
         <option value="$PROJECT_DIR$/HomeWork_5/pom.xml" />
         <option value="$PROJECT_DIR$/HomeWork_6/pom.xml" />
+        <option value="$PROJECT_DIR$/HomeWork_8/pom.xml" />
+        <option value="$PROJECT_DIR$/HomeWork_1/pom.xml" />
+        <option value="$PROJECT_DIR$/HomeWork_3/pom.xml" />
+        <option value="$PROJECT_DIR$/HomeWork_7/pom.xml" />
+        <option value="$PROJECT_DIR$/HomeWork_9/pom.xml" />
+        <option value="$PROJECT_DIR$/HomeWork_10/pom.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_20" default="true" project-jdk-name="openjdk-20" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="openjdk-20" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>
