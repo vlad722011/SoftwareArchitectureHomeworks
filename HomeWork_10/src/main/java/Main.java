@@ -48,7 +48,7 @@ public class Main {
         unitOfWork.addProduct(five);
         System.out.println("Добавили пятый товар.");
 
-        //revert all operations
+        //откатим транзакцию и отменим все операции
         System.out.println("Решили откатить транзакцию, и не стали добавлять товары в базу данных.");
         unitOfWork.revertTranzaction();
 
