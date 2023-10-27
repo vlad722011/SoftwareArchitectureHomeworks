@@ -1,0 +1,64 @@
+@startuml
+interface application.repository.IRepository {
+~ E getById(int)
+~ List<E> getAll()
+~ void add(E)
+~ void delete(int)
+}
+class application.unitOfWork.UnitOfWork {
+- List<Product> newProducts
+- List<Product> deletedProducts
+- ProductService productService
++ void addProduct(Product)
++ void deleteProduct(Product)
++ void commit()
++ void revertTranzaction()
++ List<Product> getAllProducts()
+}
+class application.dao.ProductDao {
+- List<Product> productList
+~ int productId
++ List<Product> findAll()
++ Product findById(int)
++ void add(Product)
++ void delete(int)
+}
+class Main {
++ {static} void main(String[])
+}
+interface application.dao.IProductDao {
+~ List<Product> findAll()
+~ Product findById(int)
+~ void add(Product)
+~ void delete(int)
+}
+class application.serviceLayer.ProductService {
+- IRepository<Product> productIRepository
++ void addInexpensiveProducts(Product)
++ void deleteInexpensiveProducts(int)
++ List<Product> getAllProducts()
+}
+class application.repository.ProductRepository {
+- IProductDao productDao
++ Product getById(int)
++ List<Product> getAll()
++ void add(Product)
++ void delete(int)
+}
+class application.dao.Product {
+- int id
+- String name
+- double price
++ int getId()
++ void setId(int)
++ String getName()
++ void setName(String)
++ double getPrice()
++ void setPrice(double)
++ String toString()
+}
+
+
+application.dao.IProductDao <|.. application.dao.ProductDao
+application.repository.IRepository <|.. application.repository.ProductRepository
+@enduml
